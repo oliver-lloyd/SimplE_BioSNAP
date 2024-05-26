@@ -3,22 +3,26 @@ import streamlit as st
 import altair as alt
 import matplotlib.pyplot as plt
 
+
+# Load and prep embedding data
+emb = Embeds()
+emb.pca()
+
 # Header
 st.title('SimplE embeddings of BioSNAP drugs')
 st.link_button(
-    'Full 256-dimension data avilable here',
+    'Full 256-dimension dataset avilable here',
     url='https://github.com/oliver-lloyd/SimplE_BioSNAP/blob/master/data/raw_embed_df.csv'
 )
 
 # User input
 n = st.slider(
-    'Desired number of dimensions in projection', 
+    'Desired number of dimensions in projection. Choose <= 3 to see data viz.', 
     min_value=1,
     max_value=8
 )
 
-# Load and prep embedding data
-emb = Embeds()
+# Project and show
 emb.pca(n)
 st.dataframe(
     emb.pca_df, 
@@ -26,7 +30,7 @@ st.dataframe(
     use_container_width=True
 )
 
-# Visualise if in R2 or below 
+# Visualise if in R3 or below 
 if n <= 2:
     if n == 1:
         chart = alt.Chart(emb.pca_df).mark_circle(size=60).encode(
@@ -60,15 +64,4 @@ elif n == 3:
     st.pyplot(fig, use_container_width=True)
 else:
     st.write(f'Cannot visualise in {n} dimensions.')
-
-# Footer
-gap_lines = 5
-for _ in range(gap_lines):
-    st.write('')
-st.subheader('Sources:')
-st.write('- BioSNAP dataset: http://snap.stanford.edu/decagon')
-st.write('- Decagon paper: https://doi.org/10.1093/bioinformatics/bty294')
-st.write('- LibKGE: https://github.com/uma-pi1/kge')
-st.write('- SimplE paper: https://doi.org/10.48550/arXiv.1802.04868')
-st.write('')
-st.write('Contact: oliver.lloyd@bristol.ac.uk, https://github.com/oliver-lloyd')
+    
