@@ -5,7 +5,10 @@ import altair as alt
 
 # Header
 st.title('SimplE embeddings of BioSNAP drugs')
-st.write('')
+st.link_button(
+    'Raw/full data avilable here',
+    url='https://github.com/oliver-lloyd/SimplE_BioSNAP/blob/master/data/raw_embed_df.csv'
+)
 
 # User input
 n = st.slider(
