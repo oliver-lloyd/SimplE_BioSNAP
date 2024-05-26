@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 
 
 # Load and prep embedding data
-emb = Embeds()
-emb.pca()
+st.session_state.emb = Embeds()
+st.session_state.emb.pca()
 
 # Header
 st.title('SimplE embeddings of BioSNAP drugs')
@@ -17,15 +17,15 @@ st.link_button(
 
 # User input
 n = st.slider(
-    'Desired number of dimensions in projection. Choose <= 3 to see data viz.', 
+    'Desired number of dimensions in projection. Choose 3 or fewer to see a visualisation of the result.', 
     min_value=1,
     max_value=8
 )
 
 # Project and show
-emb.pca(n)
+st.session_state.emb.pca(n)
 st.dataframe(
-    emb.pca_df, 
+    st.session_state.emb.pca_df, 
     hide_index=True,
     use_container_width=True
 )
@@ -33,12 +33,12 @@ st.dataframe(
 # Visualise if in R3 or below 
 if n <= 2:
     if n == 1:
-        chart = alt.Chart(emb.pca_df).mark_circle(size=60).encode(
+        chart = alt.Chart(st.session_state.emb.pca_df).mark_circle(size=60).encode(
             x='Component 1',
             tooltip=['Drug']
         )
     elif n == 2:
-        chart = alt.Chart(emb.pca_df).mark_circle(size=60).encode(
+        chart = alt.Chart(st.session_state.emb.pca_df).mark_circle(size=60).encode(
             x='Component 1',
             y='Component 2',
             tooltip=['Drug']
@@ -48,14 +48,14 @@ if n <= 2:
         use_container_width=True
     )
 elif n == 3:
-    st.write(f'3D visualisation is a work in progress. For the time being, enjoy this non-interactable pyplot figure:')
+    st.write(f'3D visualisation is a work in progress. For the time being, enjoy this ugly pyplot figure:')
     fig = plt.figure(figsize=(8, 8))
     ax = fig.add_subplot(projection='3d')
     ax.scatter(
         xs='Component 1',
         ys='Component 2',
         zs='Component 3',
-        data=emb.pca_df, 
+        data=st.session_state.emb.pca_df, 
         marker='x'
     )
     ax.set_xlabel('Component 1')
@@ -64,4 +64,3 @@ elif n == 3:
     st.pyplot(fig, use_container_width=True)
 else:
     st.write(f'Cannot visualise in {n} dimensions.')
-    

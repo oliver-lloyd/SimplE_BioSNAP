@@ -36,3 +36,18 @@ class Embeds:
         raw_strs = [d.split('CID')[1] for d in self.index['Drug'].values]
         IDs = [int(st) for st in raw_strs]
         self.index['Drug'] = [f'CID{id}' for id in IDs]
+
+
+    def SimplE_scorer(self, ent1, rel, ent2):
+        from numpy import dot, multiply
+        id1 = self.index.query('Drug == @ent1').index[0]
+        id2 = self.index.query('Drug == @ent2').index[0]
+        #rel_id = self.rel_emb_.query('SE == @rel').index[0]
+
+        vec1 = self.emb_[id1]
+        vec2 = self.emb_[id2]
+        #rel_vec = self.rel_emb_[rel_id]
+
+        #return np.dot(np.multiply(vec1, rel_vec), vec2)
+        return dot(multiply(vec1, vec2), vec2)  # Delete line when have proper rel embeds
+    
