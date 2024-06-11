@@ -2,9 +2,10 @@ import pandas as pd
 
 class Embeds:
 
-    def __init__(self, embeds_path='data/raw_embed_df.csv'):
+    def __init__(self, embeds_path='data/raw_embed_df.csv', drug_info_path='data/pubchem_info.csv'):
         
         self.raw_path = embeds_path
+        self.drug_info = pd.read_csv(drug_info_path)
         self.load_raw()
 
 
@@ -26,16 +27,19 @@ class Embeds:
         self.pca_emb_ = self.pca_obj.components_.T
         cols = [f'Component {n+1}' for n in range(n_dim)]
         pca_df = pd.DataFrame(self.pca_emb_, columns=cols)
-        self.pca_df = pd.concat(
+        pca_df = pd.concat(
             [self.index['Drug'], pca_df], 
             axis=1
         )
+        self.pca_df = pca_df.merge(self.drug_info, on='Drug')
 
 
     def _format_drugnames(self):
         raw_strs = [d.split('CID')[1] for d in self.index['Drug'].values]
         IDs = [int(st) for st in raw_strs]
-        self.index['Drug'] = [f'CID{id}' for id in IDs]
+        formatted = [f'CID{id}' for id in IDs]
+        self.index['Drug'] = formatted
+        self.drug_info['Drug'] = formatted
 
 
     def SimplE_scorer(self, ent1, rel, ent2):

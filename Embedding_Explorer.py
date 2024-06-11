@@ -10,38 +10,49 @@ st.session_state.emb.pca()
 
 # Header
 st.title('SimplE embeddings of BioSNAP drugs')
+st.write('This page allows you to project the data down to 3 or fewer dimensions, in order to visualise the drug embeddings')
+
+# Show Zitnik et al's figure
+st.image(
+    'fig/zitnik_et_al_schema.jpeg', 
+    caption='Sample snapshot of the input data, taken from Zitnik et al\'s paper, \
+        available at: https://doi.org/10.1093/bioinformatics/bty294'
+)
+
+# User input
 st.link_button(
     'Full 256-dimension dataset avilable here',
     url='https://github.com/oliver-lloyd/SimplE_BioSNAP/blob/master/data/raw_embed_df.csv'
 )
 
-# User input
 n = st.slider(
-    'Desired number of dimensions in projection. Choose 3 or fewer to see a visualisation of the result.', 
+    'Desired number of dimensions in projection.', 
     min_value=1,
-    max_value=8
+    max_value=3
 )
 
 # Project and show
 st.session_state.emb.pca(n)
+cols_to_show = ['Drug'] + [f'Component {i+1}' for i in range(n)]
 st.dataframe(
-    st.session_state.emb.pca_df, 
+    st.session_state.emb.pca_df[cols_to_show], 
     hide_index=True,
     use_container_width=True
 )
 
 # Visualise if in R3 or below 
+tooltips = ['Drug', 'formula', 'molecular_weight', 'URL']
 if n <= 2:
     if n == 1:
         chart = alt.Chart(st.session_state.emb.pca_df).mark_circle(size=60).encode(
             x='Component 1',
-            tooltip=['Drug']
+            tooltip=tooltips
         )
     elif n == 2:
         chart = alt.Chart(st.session_state.emb.pca_df).mark_circle(size=60).encode(
             x='Component 1',
             y='Component 2',
-            tooltip=['Drug']
+            tooltip=tooltips
         )
     st.altair_chart(
         chart.interactive(),
