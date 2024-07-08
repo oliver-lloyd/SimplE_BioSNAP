@@ -2,27 +2,26 @@ import pandas as pd
 
 class Embeds:
 
-    def __init__(self, embeds_path='data/raw_embed_df.csv', drug_info_path='data/pubchem_info.csv', rel_embeds_path='data/rel_embeds.csv'):
+    def __init__(self, embeds_path='data/ent_embeds.csv', drug_info_path='data/pubchem_info.csv', rel_embeds_path='data/rel_embeds.csv'):
         
         self.ent_embed_path = embeds_path
-        self.drug_info = pd.read_csv(drug_info_path)
         self.rel_embed_path = rel_embeds_path
+        
+        self.drug_info = pd.read_csv(drug_info_path)
         self.load_raw()
 
 
     def load_raw(self):
         ent_raw_df = pd.read_csv(self.ent_embed_path)
-        self.ent_index = ent_raw_df[['selfloops_index','Drug']]
-        self._format_drugnames()
+        self.ent_index = ent_raw_df[['selfloops_index','Pubchem_ID', 'Drug']]
+        self._format_drug_IDs()
 
         rel_raw_df = pd.read_csv(self.rel_embed_path)
-        filter_rels = ['DrugTarget', 'ProteinProteinInteraction']
-        rel_raw_df.query('relation not in @filter_rels', inplace=True)
-        rel_raw_df.reset_index(inplace=True, drop=True)
-        self.rel_index = rel_raw_df[['relation']]
+        self.rel_index = rel_raw_df[['relation', 'description']]
 
         self.full_dim = int(ent_raw_df.columns[-1])
         self.emb_colnames = [str(i) for i in range(self.full_dim)]
+
         self.ent_emb_ = ent_raw_df[self.emb_colnames].to_numpy()
         self.rel_emb_ = rel_raw_df[self.emb_colnames].to_numpy()
         
@@ -42,12 +41,12 @@ class Embeds:
         self.pca_df = pca_df.merge(self.drug_info, on='Drug')
 
 
-    def _format_drugnames(self):
-        raw_strs = [d.split('CID')[1] for d in self.ent_index['Drug'].values]
+    def _format_drug_IDs(self):
+        raw_strs = [d.split('CID')[1] for d in self.ent_index['Pubchem_ID'].values]
         IDs = [int(st) for st in raw_strs]
         formatted_drugs = [f'CID{id}' for id in IDs]
-        self.ent_index['Drug'] = formatted_drugs
-        self.drug_info['Drug'] = formatted_drugs
+        self.ent_index['Pubchem_ID'] = formatted_drugs
+        self.drug_info['Pubchem_ID'] = formatted_drugs
 
 
     def SimplE_scorer(self, ent1, rel, ent2):
@@ -55,7 +54,7 @@ class Embeds:
 
         id1 = self.ent_index.query('Drug == @ent1').index[0]
         id2 = self.ent_index.query('Drug == @ent2').index[0]
-        rel_id = self.rel_index.query('relation == @rel').index[0]
+        rel_id = self.rel_index.query('description == @rel').index[0]
 
         vec1 = self.ent_emb_[id1]
         vec2 = self.ent_emb_[id2]

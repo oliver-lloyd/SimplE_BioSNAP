@@ -30,13 +30,15 @@ drug2 = st.selectbox('Drug 2', emb.ent_index['Drug'])
 for _ in range(gap):
     st.write('')
 st.write('Choose a side effect')
-se = st.selectbox('Side effect', emb.rel_index['relation'])
+se = st.selectbox('Side effect', emb.rel_index['description'])
 
 for _ in range(gap):
     st.write('')
 if drug1 != drug2:
     score = emb.SimplE_scorer(drug1, se, drug2)
-    st.write(f'Score of triple ({drug1}, {se}, {drug2}):')
-    st.write(f'{score:.3f}')
+    st.divider()
+    st.markdown(f'Scoring the side effect "{se}" between drugs "{drug1}" and "{drug2}":')
+    st.latex(f'SimplE({drug1}, {se}, {drug2}) =  {score:.3f}')
+    st.divider()
 else:
-    st.write('Choose two different drugs to get a score.')
+    st.subheader('Choose two different drugs to get a score.')

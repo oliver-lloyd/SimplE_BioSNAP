@@ -41,7 +41,7 @@ st.dataframe(
 )
 
 # Visualise if in R3 or below 
-tooltips = ['Drug', 'formula', 'molecular_weight', 'URL']
+tooltips = ['Drug', 'Pubchem_ID', 'formula', 'molecular_weight', 'URL']
 if n <= 2:
     if n == 1:
         chart = alt.Chart(st.session_state.emb.pca_df).mark_circle(size=60).encode(
