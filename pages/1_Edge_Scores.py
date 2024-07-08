@@ -36,9 +36,10 @@ for _ in range(gap):
     st.write('')
 if drug1 != drug2:
     score = emb.SimplE_scorer(drug1, se, drug2)
+    st.subheader(f'Scoring the side effect "{se}" between drugs "{drug1}" and "{drug2}":')
     st.divider()
-    st.markdown(f'Scoring the side effect "{se}" between drugs "{drug1}" and "{drug2}":')
-    st.latex(f'SimplE({drug1}, {se}, {drug2}) =  {score:.3f}')
+    st.latex(f'SimplE({drug1}, {se}, {drug2})')
+    st.latex(f'= {score:.3f}')
     st.divider()
 else:
     st.subheader('Choose two different drugs to get a score.')
