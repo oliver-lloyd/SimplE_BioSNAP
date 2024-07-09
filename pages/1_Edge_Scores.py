@@ -1,4 +1,6 @@
 import streamlit as st
+import altair as alt
+from pandas import DataFrame
 
 
 # Initialize
@@ -30,16 +32,37 @@ drug2 = st.selectbox('Drug 2', emb.ent_index['Drug'])
 for _ in range(gap):
     st.write('')
 st.write('Choose a side effect')
-se = st.selectbox('Side effect', emb.rel_index['description'])
+se_options = ['All'] + emb.rel_index['description'].to_list()
+se = st.selectbox('Side effect', se_options)
 
 for _ in range(gap):
     st.write('')
 if drug1 != drug2:
-    score = emb.SimplE_scorer(drug1, se, drug2)
-    st.subheader(f'Scoring the side effect "{se}" between drugs "{drug1}" and "{drug2}":')
-    st.divider()
-    st.latex(f'SimplE({drug1}, {se}, {drug2})')
-    st.latex(f'= {score:.3f}')
-    st.divider()
+    if se != 'All':
+        score = emb.SimplE_scorer(drug1, se, drug2)
+        st.subheader(f'Scoring the side effect "{se}" between drugs "{drug1}" and "{drug2}":')
+        st.divider()
+        st.latex(f'SimplE({drug1}, {se}, {drug2})')
+        st.latex(f'= {score:.3f}')
+        st.divider()
+    else:
+        scores = [emb.SimplE_scorer(drug1, se_, drug2) for se_ in emb.rel_index.description]
+        scores_df = DataFrame()
+        scores_df['Model score'] = scores
+        scores_df['Side effect'] = emb.rel_index.description
+
+        st.subheader(f'Scoring all side effects between drugs "{drug1}" and "{drug2}":')
+        st.divider()
+        st.latex(f'SimplE({drug1}, * , {drug2})')
+
+        chart = alt.Chart(scores_df).mark_circle(size=60).encode(
+            x='Model score',
+            tooltip=['Side effect', 'Model score']
+        )
+        st.altair_chart(
+            chart.interactive(),
+            use_container_width=True
+        )
+        st.divider()
 else:
     st.subheader('Choose two different drugs to get a score.')

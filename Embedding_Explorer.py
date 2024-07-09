@@ -28,7 +28,8 @@ st.link_button(
 n = st.slider(
     'Desired number of dimensions in projection.', 
     min_value=1,
-    max_value=3
+    max_value=3,
+    value=2
 )
 
 # Project and show
@@ -59,7 +60,7 @@ if n <= 2:
         use_container_width=True
     )
 elif n == 3:
-    st.write(f'3D visualisation is a work in progress. For the time being, enjoy this ugly pyplot figure:')
+    st.write(f'3D visualisation is a work in progress. For the time being, enjoy this static (non-interactive) pyplot figure:')
     fig = plt.figure(figsize=(8, 8))
     ax = fig.add_subplot(projection='3d')
     ax.scatter(

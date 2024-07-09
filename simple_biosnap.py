@@ -2,7 +2,11 @@ import pandas as pd
 
 class Embeds:
 
-    def __init__(self, embeds_path='data/ent_embeds.csv', drug_info_path='data/pubchem_info.csv', rel_embeds_path='data/rel_embeds.csv'):
+    def __init__(self,
+            embeds_path='data/emb/ent_embeds.csv',
+            drug_info_path='data/drug_info/pubchem_data.csv',
+            rel_embeds_path='data/emb/rel_embeds.csv'
+        ):
         
         self.ent_embed_path = embeds_path
         self.rel_embed_path = rel_embeds_path

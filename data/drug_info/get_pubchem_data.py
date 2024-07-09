@@ -3,7 +3,7 @@ import pubchempy as pcp
 from pathlib import Path
 from time import sleep
 
-out_path = Path('pubchem_info.csv')
+out_path = Path('pubchem_data.csv')
 
 if not out_path.exists():
     out_df = pd.DataFrame()
