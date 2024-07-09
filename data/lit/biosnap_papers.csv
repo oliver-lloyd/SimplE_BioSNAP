@@ -1,40 +1,40 @@
-,Paper,Link,Year,Name,Category,Mechanism,AUROC (transductive),AUPRC (transductive),AP50 (transductive)
-0,Emerging drug interaction prediction enabled by a flow-based graph neural network with biomedical network,https://arxiv.org/pdf/2311.09261.pdf,2024,EmerGNN,GNN,GAT,0.981,0.976,
-1,SRR-DDI: A drug–drug interaction prediction model with substructure refined representation learning based on self-attention mechanism,https://doi.org/10.1016/j.knosys.2023.111337,2024,SRR-DDI,GNN,GAT,0.932,,
-2,SSF-DDI: a deep learning method utilizing drug sequence and substructure features for drug–drug interaction prediction,https://doi.org/10.1186/s12859-024-05654-4,2024,SSF-DDI,GNN,GAT,0.931,,
-3,An effective framework for predicting drug–drug interactions based on molecular substructures and knowledge graph neural network,https://doi.org/10.1016/j.compbiomed.2023.107900,2024,MSKG-DDI,GNN,GAT,0.911,,
-4,MASMDDI: multi-layer adaptive soft-mask graph neural network for drug-drug interaction prediction,https://doi.org/10.3389/fphar.2024.1369403,2024,MASMDDI,GNN,Soft-mask,0.8855,0.8475,
-5,DSN-DDI: an accurate and generalized framework for drug–drug interaction prediction by dual-view representation learning,https://doi.org/10.1093/bib/bbac597,2023,DSN-DDI,GNN,GAT,0.999,,
-6,Adaptive dual graph contrastive learning based on heterogeneous signed network for predicting adverse drug reaction,https://doi.org/10.1016/j.ins.2023.119139,2023,ADGCL,GNN,GAT,0.984,0.978,
-7,THIS WORK,https://arxiv.org/abs/2404.11374,2023,SimplE,Tensor decomp,CP decomp,0.978,0.971,0.98
-8,HyGNN: Drug-Drug Interaction Prediction via Hypergraph Neural Network,https://doi.org/10.1109/ICDE55515.2023.00119,2023,HyGNN,GNN,Hybrid,0.963,0.965,
-9,DeepDrug: A general graph-based deeplearning framework for drug-druginteractions and drug-targetinteractions prediction,https://doi.org/10.15302/J-QB-022-0320,2023,DeepDrug,GNN,GCN,,0.96,
-10,Predicting Drug-drug Interactions Using Heterogeneous Graph Attention Networks,https://doi.org/10.1145/3584371.36130,2023,HAN-DDI,GNN,GAT,0.9544,,
-11,DDI-SSL: Drug–Drug Interaction Prediction Based on Substructure Signature Learning,https://doi.org/10.3390/app131910750,2023,DDI-SSL,GNN,GCN,0.939,,
-12,Predicting drug-drug adverse reactions via multi-view graph contrastive representation model,https://doi.org/10.1007/s10489-022-04372-9,2023,DMVDGI,GNN,GCN,0.932,0.938,
-13,R2-DDI: relation-aware feature refinement for drug–drug interaction prediction,https://doi.org/10.1093/bib/bbac576,2023,R2-DDI,GNN,GCN,0.9149,,
-14,A Knowledge Graph Embedding Approach for Polypharmacy Side Effects Prediction,https://doi.org/10.3390/app13052842,2023,Kim and Shin '23,Neural net,Feedforward net,0.912,0.901,
-15,MS-ADR: predicting drug–drug adverse reactions base on multi-source heterogeneous convolutional signed network,https://doi.org/10.1007/s00500-022-06951-x,2022,MS-ADR,GNN,GCN,0.973,0.983,
-16,SimVec: predicting polypharmacy side effects for new drugs,https://doi.org/10.1186/s13321-022-00632-5,2022,SimVec,Neural net,Auto-encoder,0.975,0.968,
-17,A neural network-based method for polypharmacy side effects prediction,https://doi.org/10.1186/s12859-021-04298-y,2022,NNPS,Neural net,Feedforward net,0.966,0.953,
-18,MFSE: A Meta-Fusion Model for Polypharmacy Side-Effect Prediction with Graph Neural Networks,https://doi.org/10.1109/ICTAI56018.2022.00089,2022,MFSE,GNN,GCN,0.951,0.936,
-19,Learning size-adaptive molecular substructures for explainable drug-drug interaction prediction by substructure-aware graph neural network,https://doi.org/10.1039/D2SC02023H,2022,SA-DDI,GNN,GAT,0.9317,,
-20,DeepPSE: Prediction of polypharmacy side effects by fusing deep representation of drug pairs and attention mechanism,https://doi.org/10.1016/j.compbiomed.2022.105984,2022,MDF-PSE,Neural net,Conv net,0.93,0.92,
-21,Hierarchical and Centrality driven Polypharmacy Side Effect Prediction Model,https://doi.org/10.1109/UBMK55850.2022.9919451,2022,HC-GCN,GNN,GCN,0.928,0.902,
-22,DeSIDE-DDI: interpretable prediction of drug-drug interactions using drug-induced gene expressions,https://doi.org/10.1186/s13321-022-00589-5,2022,DeSIDE-DDI,Neural net,Feedforward net,0.889,0.915,
-23,Detection of polypharmacy side effects by integrating multiple data sources and convolutional neural networks,https://doi.org/10.1007/s11030-022-10382-z,2022,PSECNN,Neural net,Feedforward net,0.901,0.896,0.832
-24,Drug Side Effects Prediction via Heterogeneous Multi-Relational Graph Convolutional Networks,https://doi.org/10.1109/ICTAI56018.2022.00167,2022,DEP-GCN,GNN,GCN,0.822,0.775,
-25,Predicting Polypharmacy Side Effects Through a Relation-Wise Graph Attention Network,https://doi.org/10.1007/978-3-030-73973-7_12,2021,GAT,GNN,GAT,0.998,0.998,
-26,Drug-Drug Adverse Reactions Prediction Based On Signed Network,https://doi.org/10.1109/ITME53901.2021.00064,2021,GS-ADR,GNN,GAT,0.955,0.972,
-27,Cold-Start Problems in Data-Driven Prediction of Drug–Drug Interaction Effects,https://doi.org/10.3390/ph14050429,2021,3-Step KRR,Other,Kernel Ridge Regression,0.957,,
-28,M2GCN: multi-modal graph convolutional network for modeling polypharmacy side effects,https://doi.org/10.1007/s10489-022-03839-z,2021,M2GCN,GNN,GCN,0.948,0.953,
-29,Modeling polypharmacy effects with heterogeneous signed graph convolutional networks,https://doi.org/10.1007/s10489-021-02296-4,2021,SC-DDIS,GNN,GCN,0.947,0.93,0.895
-30,Drug-drug interaction prediction with Wasserstein Adversarial Autoencoder-based knowledge graph embeddings,https://doi.org/10.1093/bib/bbaa256,2021,"Dai et al, '20",Neural net,Auto-encoder,0.9527,0.79,
-31,Polypharmacy side-effect prediction with enhanced interpretability based on graph feature attention network,https://doi.org/10.1093/bioinformatics/btab174,2021,GFAN,GNN,GAT,See table 3.,,
-32,Predicting Polypharmacy Side-effects Using Knowledge Graph Embedding,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7233093/,2020,TriVec,Tensor decomp,?,0.965,0.944,0.962
-33,CASTER: Predicting drug interactions with chemical substructure representation,https://doi.org/10.1609/aaai.v34i01.5412,2020,CASTER,Neural net,Feedforward net,0.91,0.887,
-34,Predicting Polypharmacy Side Effects Based on an Enhanced Domain Knowledge Graph,https://doi.org/10.1007/978-3-030-61702-8_7,2020,ConvE,Neural net,CNN,0.96,0.71,0.91
-35,Hypergraph link prediction: Learning drug interaction networks embeddings,https://doi.org/10.1109/ICMLA.2019.00299,2019,HLP,GNN,GCN,0.957,0.965,0.967
-36,Predicting Adverse Drug-Drug Interactions with Neural Embedding of Semantic Predications,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7153048/,2019,ESP,Neural net,ESP,0.903,0.875,0.865
-37,Knowledge Graph Completion to Predict Polypharmacy Side Effects,https://doi.org/10.1007/978-3-030-06016-9_14,2018,KBLRN,Other,Product of Experts,0.899,0.878,0.857
-38,Modeling polypharmacy side effects with graph convolutional networks,https://doi.org/10.1093/bioinformatics/bty294,2018,Decagon,GNN,GCN,0.872,0.832,0.803
+Paper,Link,Year,Name,Category,Mechanism,AUROC (transductive),AUPRC (transductive),AP50 (transductive)
+Emerging drug interaction prediction enabled by a flow-based graph neural network with biomedical network,https://arxiv.org/pdf/2311.09261.pdf,2024,EmerGNN,GNN,GAT,0.981,0.976,
+SRR-DDI: A drug–drug interaction prediction model with substructure refined representation learning based on self-attention mechanism,https://doi.org/10.1016/j.knosys.2023.111337,2024,SRR-DDI,GNN,GAT,0.932,,
+SSF-DDI: a deep learning method utilizing drug sequence and substructure features for drug–drug interaction prediction,https://doi.org/10.1186/s12859-024-05654-4,2024,SSF-DDI,GNN,GAT,0.931,,
+An effective framework for predicting drug–drug interactions based on molecular substructures and knowledge graph neural network,https://doi.org/10.1016/j.compbiomed.2023.107900,2024,MSKG-DDI,GNN,GAT,0.911,,
+MASMDDI: multi-layer adaptive soft-mask graph neural network for drug-drug interaction prediction,https://doi.org/10.3389/fphar.2024.1369403,2024,MASMDDI,GNN,Soft-mask,0.8855,0.8475,
+DSN-DDI: an accurate and generalized framework for drug–drug interaction prediction by dual-view representation learning,https://doi.org/10.1093/bib/bbac597,2023,DSN-DDI,GNN,GAT,0.999,,
+Adaptive dual graph contrastive learning based on heterogeneous signed network for predicting adverse drug reaction,https://doi.org/10.1016/j.ins.2023.119139,2023,ADGCL,GNN,GAT,0.984,0.978,
+THIS WORK,https://arxiv.org/abs/2404.11374,2023,SimplE,Tensor decomp,CP decomp,0.978,0.971,0.98
+HyGNN: Drug-Drug Interaction Prediction via Hypergraph Neural Network,https://doi.org/10.1109/ICDE55515.2023.00119,2023,HyGNN,GNN,Hybrid,0.963,0.965,
+DeepDrug: A general graph-based deeplearning framework for drug-druginteractions and drug-targetinteractions prediction,https://doi.org/10.15302/J-QB-022-0320,2023,DeepDrug,GNN,GCN,,0.96,
+Predicting Drug-drug Interactions Using Heterogeneous Graph Attention Networks,https://doi.org/10.1145/3584371.36130,2023,HAN-DDI,GNN,GAT,0.9544,,
+DDI-SSL: Drug–Drug Interaction Prediction Based on Substructure Signature Learning,https://doi.org/10.3390/app131910750,2023,DDI-SSL,GNN,GCN,0.939,,
+Predicting drug-drug adverse reactions via multi-view graph contrastive representation model,https://doi.org/10.1007/s10489-022-04372-9,2023,DMVDGI,GNN,GCN,0.932,0.938,
+R2-DDI: relation-aware feature refinement for drug–drug interaction prediction,https://doi.org/10.1093/bib/bbac576,2023,R2-DDI,GNN,GCN,0.9149,,
+A Knowledge Graph Embedding Approach for Polypharmacy Side Effects Prediction,https://doi.org/10.3390/app13052842,2023,Kim and Shin '23,Neural net,Feedforward net,0.912,0.901,
+MS-ADR: predicting drug–drug adverse reactions base on multi-source heterogeneous convolutional signed network,https://doi.org/10.1007/s00500-022-06951-x,2022,MS-ADR,GNN,GCN,0.973,0.983,
+SimVec: predicting polypharmacy side effects for new drugs,https://doi.org/10.1186/s13321-022-00632-5,2022,SimVec,Neural net,Auto-encoder,0.975,0.968,
+A neural network-based method for polypharmacy side effects prediction,https://doi.org/10.1186/s12859-021-04298-y,2022,NNPS,Neural net,Feedforward net,0.966,0.953,
+MFSE: A Meta-Fusion Model for Polypharmacy Side-Effect Prediction with Graph Neural Networks,https://doi.org/10.1109/ICTAI56018.2022.00089,2022,MFSE,GNN,GCN,0.951,0.936,
+Learning size-adaptive molecular substructures for explainable drug-drug interaction prediction by substructure-aware graph neural network,https://doi.org/10.1039/D2SC02023H,2022,SA-DDI,GNN,GAT,0.9317,,
+DeepPSE: Prediction of polypharmacy side effects by fusing deep representation of drug pairs and attention mechanism,https://doi.org/10.1016/j.compbiomed.2022.105984,2022,MDF-PSE,Neural net,Conv net,0.93,0.92,
+Hierarchical and Centrality driven Polypharmacy Side Effect Prediction Model,https://doi.org/10.1109/UBMK55850.2022.9919451,2022,HC-GCN,GNN,GCN,0.928,0.902,
+DeSIDE-DDI: interpretable prediction of drug-drug interactions using drug-induced gene expressions,https://doi.org/10.1186/s13321-022-00589-5,2022,DeSIDE-DDI,Neural net,Feedforward net,0.889,0.915,
+Detection of polypharmacy side effects by integrating multiple data sources and convolutional neural networks,https://doi.org/10.1007/s11030-022-10382-z,2022,PSECNN,Neural net,Feedforward net,0.901,0.896,0.832
+Drug Side Effects Prediction via Heterogeneous Multi-Relational Graph Convolutional Networks,https://doi.org/10.1109/ICTAI56018.2022.00167,2022,DEP-GCN,GNN,GCN,0.822,0.775,
+Predicting Polypharmacy Side Effects Through a Relation-Wise Graph Attention Network,https://doi.org/10.1007/978-3-030-73973-7_12,2021,GAT,GNN,GAT,0.998,0.998,
+Drug-Drug Adverse Reactions Prediction Based On Signed Network,https://doi.org/10.1109/ITME53901.2021.00064,2021,GS-ADR,GNN,GAT,0.955,0.972,
+Cold-Start Problems in Data-Driven Prediction of Drug–Drug Interaction Effects,https://doi.org/10.3390/ph14050429,2021,3-Step KRR,Other,Kernel Ridge Regression,0.957,,
+M2GCN: multi-modal graph convolutional network for modeling polypharmacy side effects,https://doi.org/10.1007/s10489-022-03839-z,2021,M2GCN,GNN,GCN,0.948,0.953,
+Modeling polypharmacy effects with heterogeneous signed graph convolutional networks,https://doi.org/10.1007/s10489-021-02296-4,2021,SC-DDIS,GNN,GCN,0.947,0.93,0.895
+Drug-drug interaction prediction with Wasserstein Adversarial Autoencoder-based knowledge graph embeddings,https://doi.org/10.1093/bib/bbaa256,2021,"Dai et al, '20",Neural net,Auto-encoder,0.9527,0.79,
+Polypharmacy side-effect prediction with enhanced interpretability based on graph feature attention network,https://doi.org/10.1093/bioinformatics/btab174,2021,GFAN,GNN,GAT,See table 3.,,
+Predicting Polypharmacy Side-effects Using Knowledge Graph Embedding,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7233093/,2020,TriVec,Tensor decomp,?,0.965,0.944,0.962
+CASTER: Predicting drug interactions with chemical substructure representation,https://doi.org/10.1609/aaai.v34i01.5412,2020,CASTER,Neural net,Feedforward net,0.91,0.887,
+Predicting Polypharmacy Side Effects Based on an Enhanced Domain Knowledge Graph,https://doi.org/10.1007/978-3-030-61702-8_7,2020,ConvE,Neural net,CNN,0.96,0.71,0.91
+Hypergraph link prediction: Learning drug interaction networks embeddings,https://doi.org/10.1109/ICMLA.2019.00299,2019,HLP,GNN,GCN,0.957,0.965,0.967
+Predicting Adverse Drug-Drug Interactions with Neural Embedding of Semantic Predications,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7153048/,2019,ESP,Neural net,ESP,0.903,0.875,0.865
+Knowledge Graph Completion to Predict Polypharmacy Side Effects,https://doi.org/10.1007/978-3-030-06016-9_14,2018,KBLRN,Other,Product of Experts,0.899,0.878,0.857
+Modeling polypharmacy side effects with graph convolutional networks,https://doi.org/10.1093/bioinformatics/bty294,2018,Decagon,GNN,GCN,0.872,0.832,0.803
