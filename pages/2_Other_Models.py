@@ -6,7 +6,7 @@ st.title('Other models and their performance on this dataset')
 st.write('')
 st.write('Please get in touch to report any inaccuracies on this page, or suggest papers I\'ve missed.')
 
-df = pd.read_excel('data/lit/biosnap_papers.xlsx')
+df = pd.read_csv('data/lit/biosnap_papers.csv')
 st.dataframe(
     df.drop(columns=['Paper']), 
     hide_index=True,
