@@ -1,6 +1,7 @@
 import streamlit as st
 import altair as alt
 from pandas import DataFrame
+from numpy.random import uniform
 
 
 # Initialize
@@ -54,6 +55,8 @@ if drug1 != drug2:
         scores_df = DataFrame()
         scores_df['Model score'] = scores
         scores_df['Side effect'] = emb.rel_index.description
+        max_jitter_val = 0.1
+        scores_df['Random jitter'] = [-uniform(0, max_jitter_val) if x % 2 else uniform(0, max_jitter_val) for x in range(len(scores))]
 
         st.subheader(f'Scoring all side effects between drugs "{drug1}" and "{drug2}":')
         st.divider()
@@ -63,15 +66,21 @@ if drug1 != drug2:
             '<div style="text-align: center;">Scores for all side effects between the chosen drugs. Higher score = more likely.</div>',
             unsafe_allow_html=True
         )
+        
         st.write()
 
         chart = alt.Chart(scores_df).mark_circle(size=60).encode(
-            x='Model score',
+            alt.X('Model score'),
+            alt.Y('Random jitter', axis=None).scale(domain=(-0.5, 0.5)),
             tooltip=['Side effect', 'Model score']
         )
         st.altair_chart(
             chart.interactive(),
             use_container_width=True
+        )
+        st.markdown(
+            '<div style="text-align: center;">Random/meaningless jitter has been added as the Y-axis to alleviate point overlap. The X-axis position is all that matters.</div>',
+            unsafe_allow_html=True
         )
         st.divider()
         
