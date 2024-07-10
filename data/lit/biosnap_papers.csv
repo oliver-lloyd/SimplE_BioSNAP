@@ -6,7 +6,7 @@ An effective framework for predicting drug–drug interactions based on molecula
 MASMDDI: multi-layer adaptive soft-mask graph neural network for drug-drug interaction prediction,https://doi.org/10.3389/fphar.2024.1369403,2024,MASMDDI,GNN,Soft-mask,0.8855,0.8475,
 DSN-DDI: an accurate and generalized framework for drug–drug interaction prediction by dual-view representation learning,https://doi.org/10.1093/bib/bbac597,2023,DSN-DDI,GNN,GAT,0.999,,
 Adaptive dual graph contrastive learning based on heterogeneous signed network for predicting adverse drug reaction,https://doi.org/10.1016/j.ins.2023.119139,2023,ADGCL,GNN,GAT,0.984,0.978,
-THIS WORK,https://arxiv.org/abs/2404.11374,2023,SimplE,Tensor decomp,CP decomp,0.978,0.971,0.98
+THIS WORK,https://arxiv.org/abs/2404.11374,2023,SimplE (THIS WORK),Tensor decomp,CP decomp,0.978,0.971,0.98
 HyGNN: Drug-Drug Interaction Prediction via Hypergraph Neural Network,https://doi.org/10.1109/ICDE55515.2023.00119,2023,HyGNN,GNN,Hybrid,0.963,0.965,
 DeepDrug: A general graph-based deeplearning framework for drug-druginteractions and drug-targetinteractions prediction,https://doi.org/10.15302/J-QB-022-0320,2023,DeepDrug,GNN,GCN,,0.96,
 Predicting Drug-drug Interactions Using Heterogeneous Graph Attention Networks,https://doi.org/10.1145/3584371.36130,2023,HAN-DDI,GNN,GAT,0.9544,,

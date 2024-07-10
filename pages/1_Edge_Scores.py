@@ -54,15 +54,19 @@ if drug1 != drug2:
         st.subheader(f'Scoring all side effects between drugs "{drug1}" and "{drug2}":')
         st.divider()
         st.latex(f'SimplE({drug1}, * , {drug2})')
+        st.markdown('<div style="text-align: center;">See chart below for side effect scores. Higher score = more likely.</div>', unsafe_allow_html=True)
+        st.divider()
 
         chart = alt.Chart(scores_df).mark_circle(size=60).encode(
             x='Model score',
             tooltip=['Side effect', 'Model score']
         )
+        
+        
         st.altair_chart(
             chart.interactive(),
             use_container_width=True
         )
-        st.divider()
+        
 else:
     st.subheader('Choose two different drugs to get a score.')
